@@ -1,12 +1,9 @@
 {
   "name": "vinted-monitor",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Stay informed of the release of new Vinted items",
-  "main": "index.js",
-  "types": "index.d.ts",
-  "files": [
-    "out"
-  ],
+  "main": "./index.js",
+  "types": "./typings/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/Xen0o2/vinted-monitor.git"
@@ -18,8 +15,7 @@
   "author": "Xen0o2",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.27.2",
-    "time-date-tools": "^0.0.13"
+    "axios": "^0.27.2"
   },
   "type": "module"
 }
