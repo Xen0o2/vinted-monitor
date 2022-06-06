@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "es2020",
+        "module": "esnext",
+        "outDir": "./out",
+        "rootDir": "./src",
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "strict": true
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"],
+    "ts-node": {
+      "pretty": true
+    }
+}
