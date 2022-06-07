@@ -2,7 +2,7 @@ import VintedUserPhoto from "./VintedUserPhoto.js";
 
 export default interface VintedUserType {
     id: number;
-    username: string;
+    login: string;
     name: string | null;
     email: string | null;
     gender: string | null;
