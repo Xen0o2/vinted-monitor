@@ -1,5 +1,5 @@
 declare module "VintedMonitor";
-
+import VintedItem from "../class/VintedItem.js"
 
 export class VintedMonitor {
     /**
@@ -12,7 +12,5 @@ export class VintedMonitor {
      * 
      * @param callback The function to run when a new item is detected, with as first argument, the item
      */
-    onItemFound(callback: CallableFunction): void;
+    onItemFound(callback: (item: VintedItem) => void): void;
 }
-
-import VintedItemType from "./types/VintedItemType.js";

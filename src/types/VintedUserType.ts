@@ -1,6 +1,6 @@
 import VintedUserPhoto from "./VintedUserPhoto.js";
 
-export default interface VintedUser {
+export default interface VintedUserType {
     id: number;
     username: string;
     name: string | null;

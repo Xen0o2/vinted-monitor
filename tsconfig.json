@@ -9,7 +9,9 @@
         "forceConsistentCasingInFileNames": true,
         "esModuleInterop": true,
         "moduleResolution": "node",
-        "strict": true
+        "strict": true,
+        "declaration": true,
+        "declarationDir": "./out/typings"
     },
     "include": ["src"],
     "exclude": ["node_modules"],
