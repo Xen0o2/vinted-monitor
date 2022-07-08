@@ -1,6 +1,6 @@
 {
   "name": "vinted-monitor",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Stay informed of the release of new Vinted items",
   "main": "./out/index.js",
   "types": "./typings/index.d.ts",
