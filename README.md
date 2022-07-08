@@ -18,7 +18,7 @@ import VintedMonitor from "vinted-monitor";
 const Monitor = new VintedMonitor();
 
 // Now, watch for 1 or more Vinted URL
-Monitor.watch("https://www.vinted.fr/vetements?search_text=casquette&brand_id[]=362&order=newest_first&color_id[]=12")
+Monitor.watch("https://www.vinted.fr/vetements?search_text=casquette&brand_id[]=362&order=newest_first&color_id[]=12");
 
 // Finally, create a function that will be executed
 // when a new item is detected
@@ -30,6 +30,9 @@ Monitor.onItemFound(item => {
     console.log("This item costs", item.info.price, "€");
     console.log("This item was posted on", item.info.date.toString());
 })
+
+// You can stop watching a Vinted URL
+Monitor.unWatch("https://www.vinted.fr/vetements?search_text=casquette&brand_id[]=362&order=newest_first&color_id[]=12");
 ```
 
 And many others variables are available !
