@@ -24,9 +24,11 @@ Monitor.watch("https://www.vinted.fr/vetements?search_text=casquette&brand_id[]=
 // when a new item is detected
 Monitor.onItemFound(item => {
     console.log("I detect a new Item !");
+    console.log("I found this item using this url", item.info.searchUrl);
     console.log("This item has been posted by", item.user.login);
     console.log("The item name is", item.info.title);
     console.log("This item costs", item.info.price, "€");
+    console.log("This item was posted on", item.info.date.toString());
 })
 ```
 
