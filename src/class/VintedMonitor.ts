@@ -1,5 +1,4 @@
 import MonitorCache from "../types/MonitorCache.js";
-import VintedItemType from "../types/VintedItemType.js";
 import List from "./List.js";
 import VintedItem from "./VintedItem.js";
 
@@ -19,7 +18,7 @@ export default class VintedMonitor {
 
     unWatch(url: string){
         let removed = false;
-        if(this.cache.find(e => e.subUrl == url)) this.cache.splice(this.cache.findIndex(e => e.subUrl == url),1), removed = true;
+        if(this.cache.find(e => e.subUrl == url.replace(".fr",".be"))) this.cache.splice(this.cache.findIndex(e => e.subUrl == url),1), removed = true;
         return removed;
     }
 
@@ -29,10 +28,12 @@ export default class VintedMonitor {
 
     private async check(id: number, request: boolean){
         const url = this.cache[id]?.subUrl;
+        if(!url) return
         if(request) this.cache[id].list = await new List(url).initialize();
 
         const newItem = new VintedItem(Object.values(this.cache[id].list).find((item: any) => !this.cache[id].items.find((e: any) => e.id == item.id)));
         const finishedItem = await newItem.initialize(url);
+        if(!this.cache[id]) return
         if(finishedItem){
             if(finishedItem == "rateLimit"){
                 await sleep(5000)
