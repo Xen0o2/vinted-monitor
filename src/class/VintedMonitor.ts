@@ -18,7 +18,7 @@ export default class VintedMonitor {
 
     unWatch(url: string){
         let removed = false;
-        if(this.cache.find(e => e.subUrl == url.replace(".fr",".be"))) this.cache.splice(this.cache.findIndex(e => e.subUrl == url),1), removed = true;
+        if(this.cache.find(e => e.subUrl == url.replace(".fr",".be"))) this.cache.splice(this.cache.findIndex(e => e.subUrl == url.replace(".fr",".be")),1), removed = true;
         return removed;
     }
 
