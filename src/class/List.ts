@@ -10,8 +10,8 @@ export default class List {
         return this;
     }
     
-    async initialize(){
-        const items = await new Query(this.url).send();
+    async initialize(timeRange: number){
+        const items = await new Query(this.url).send(timeRange);
         this.items = (items || {});
         return this.items;
     }

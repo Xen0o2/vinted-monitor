@@ -7,6 +7,12 @@ const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
 export default class VintedMonitor {
     private cache: MonitorCache[] = [];
     private vintedEvent: ((item: VintedItem) => void) | undefined;
+    private timeRange: number;
+
+    constructor(timeRange: number = 60 * 60 * 1000){
+        if (timeRange < 60000) throw "Invalid Time Range";
+        this.timeRange = timeRange;
+    }
 
     // Example : https://www.vinted.be/vetements?search_text=casquette&brand_id[]=362&order=newest_first&color_id[]=12
     watch(url: string){
@@ -28,10 +34,20 @@ export default class VintedMonitor {
 
     private async check(id: number, request: boolean){
         const url = this.cache[id]?.subUrl;
-        if(!url) return
-        if(request) this.cache[id].list = await new List(url).initialize();
-
-        const newItem = new VintedItem(Object.values(this.cache[id].list).find((item: any) => !this.cache[id].items.find((e: any) => e.id == item.id)));
+        if (!url) return
+        if (request) this.cache[id].list = await new List(url).initialize(this.timeRange);
+        if (Object.values(this.cache[id].list).length == 0){
+            await sleep(2000);
+            this.check(id, true);
+            return;
+        }
+        const newItem = new VintedItem(
+            Object.values(this.cache[id].list).find(
+                (item: any) => !this.cache[id].items.find(
+                    (e: any) => e.id == item.id
+                )
+            )
+        );
         const finishedItem = await newItem.initialize(url);
         if(!this.cache[id]) return
         if(finishedItem){

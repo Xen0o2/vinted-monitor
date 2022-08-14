@@ -8,7 +8,7 @@ export default class Query {
         this.url = url.replace(".fr",".be");
     }
 
-    async send(){
+    async send(timeRange?: number){
         try {
             const isProduct = !this.url.includes("?")
             const query = await axios(this.url,{
@@ -42,8 +42,10 @@ export default class Query {
                 }
             } else {
                 const content = query.data.match(/{"intl":(.+|\n)}}}/g) || []
-                const parsed = JSON.parse(content[0]).items.catalogItems.byId;
-
+                let parsed = JSON.parse(content[0]).items.catalogItems.byId;
+                if (timeRange) parsed = Object.values(parsed).filter(
+                    (item: any) => Date.now() - (item?.photo?.high_resolution?.timestamp * 1000) <= timeRange
+                )
                 return parsed;
             }
 

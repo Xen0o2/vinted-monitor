@@ -15,7 +15,12 @@ import VintedMonitor from "vinted-monitor";
 # Create a new Monitor
 
 ```ts
+// Create the Monitor
 const Monitor = new VintedMonitor();
+// OR
+const Monitor = new VintedMonitor(5 * 60 * 1000);
+// Will take items that were released less than 5 minutes ago
+// Default value is 1 hour
 
 // Now, watch for 1 or more Vinted URL
 Monitor.watch("https://www.vinted.fr/vetements?search_text=casquette&brand_id[]=362&order=newest_first&color_id[]=12");
