@@ -20,3 +20,36 @@
   },
   "type": "module"
 }
+{
+  
+  "name": "vinted-monitor",
+  "version": "0.1.4",
+  "main": "out/index.js",
+  "types": "out/typings/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Xen0o2/vinted-monitor.git"
+  },
+  "keywords": [
+    "vinted",
+    "vinted-monitor"
+  ],
+  "author": "Xen0o2",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "typescript": "^4.7.4"
+  }
+  "files": [
+    "./out"
+  ],
+  "exports": {
+    ".": {
+      "require": "./out/index.js",
+      "import": "./out/index.mjs"
+    },
+    "./src/*": "./out/*",
+    "./out/*": "./out/*"
+  },
+  "module": "dist/index.mjs"
+}
