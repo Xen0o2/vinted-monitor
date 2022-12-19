@@ -1,21 +1,18 @@
 {
     "compilerOptions": {
-        "target": "es2020",
-        "module": "esnext",
+        "target": "ES2020",
+        "module": "commonjs",
+        "declaration": true,
         "outDir": "./out",
-        "rootDir": "./src",
-        "resolveJsonModule": true,
+        "strict": true,
+        "strictNullChecks": false,
+        "esModuleInterop": true,
+        "pretty": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "esModuleInterop": true,
-        "moduleResolution": "node",
-        "strict": true,
-        "declaration": true,
-        "declarationDir": "./out/typings"
+        "importHelpers": true
     },
-    "include": ["src"],
-    "exclude": ["node_modules"],
-    "ts-node": {
-      "pretty": true
-    }
+    "include": [
+        "src/**/*"
+    ]
 }

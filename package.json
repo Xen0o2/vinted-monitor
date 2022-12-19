@@ -1,9 +1,9 @@
 {
   "name": "vinted-monitor",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Stay informed of the release of new Vinted items",
-  "main": "./out/index.js",
-  "types": "./out/typings/index.d.ts",
+  "main": "out/index.js",
+  "types": "out/typings/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/Xen0o2/vinted-monitor.git"
@@ -17,6 +17,17 @@
   "dependencies": {
     "axios": "^0.27.2",
     "typescript": "^4.7.4"
+  }
+  "files": [
+    "./out"
+  ],
+  "exports": {
+    ".": {
+      "require": "./out/index.js",
+      "import": "./out/index.mjs"
+    },
+    "./src/*": "./out/*",
+    "./out/*": "./out/*"
   },
-  "type": "module"
+  "module": "dist/index.mjs"
 }
